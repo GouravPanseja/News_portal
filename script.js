@@ -14,7 +14,7 @@ The response from the api is in the form of an object that contains three key va
 
 
 
-const API_KEY = "1cf8d2b55e704091b3387bf1b2b90765";
+const API_KEY = "ec83f00746674f4d8ffb30eca067660f";
 const url = "https://newsapi.org/v2/everything?q=";   
 
 
