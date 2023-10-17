@@ -18,7 +18,7 @@ The response from the api is in the form of an object that contains three key va
     const url = "https://newsdata.io/api/1/news?apikey=";   
     
     
-    const arr= ['india','indian economy','america','europe','science','engineering','computers','current Affairs','Peace','Nature','animals']
+    const arr= ['india','world economy','america','europe','science','engineering','computers','sea','Peace','money','animals']
     
     let initialTopic=arr[Math.floor((Math.random()*10))];
     console.log(initialTopic);
