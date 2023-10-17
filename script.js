@@ -31,8 +31,14 @@ The response from the api is in the form of an object that contains three key va
     async function fetchNews(querry){
         const res = await fetch(`${url}${API_KEY}&q=${querry}`);
         const data= await res.json();
-        console.log(data.results)
-        bindData(data.results)      /* accessign the value of articles key in the data object to bind it*/
+
+
+        if (data.status =! 'success'){
+            alert('The website has stopped responding');
+            return;
+        }
+       
+      bindData(data.results)      /* accessign the value of articles key in the data object to bind it*/
     }
     
     function bindData(results){ 
