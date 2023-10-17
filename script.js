@@ -14,11 +14,11 @@ The response from the api is in the form of an object that contains three key va
 
 
 
-    const API_KEY = "pub_31307e467a3f9a1c93801f58e2180d7dec607";
+    const API_KEY = "pub_31316966056ee632a7b5467c6acdea760f673";
     const url = "https://newsdata.io/api/1/news?apikey=";   
     
     
-    const arr= ['india','world economy','world','europe','science','engineering','computers','sea','Peace','money','animals']
+    const arr= ['india','world','','computers','bollywood','book','film','hollywood','war','army','press']
     
     let initialTopic=arr[Math.floor((Math.random()*10))];
     console.log(initialTopic);
@@ -44,20 +44,25 @@ The response from the api is in the form of an object that contains three key va
         cardsContainer.innerHTML= '';  // making the container empty before again putting something into it
     
         results.forEach((result) =>{
-            console.log(result);
-            console.log(result.image_url)
-            if(result.image_url==null){ 
-                console.log('returned');   // urlToImage is a key in the article object that contains url of the image as value therefore, if the url is not present we won't wnat it in the page
+            
+            if(result.image_url==null){
+                console.log('no data');
                 return;
+
             }
-            else{
+                
+            
+
+
+        
+
                //firstElemetChild is req bcz the content returns the inner html in the form of a documentFragment
             const cardClone = newsCardTemplate.content.firstElementChild.cloneNode(true);  // cardClone becomes exact copy of the content of the template ie, card
     
             fillDataInCard(cardClone,result);
             console.log(result);
             cardsContainer.appendChild(cardClone); 
-            }
+
             
         
     
@@ -72,8 +77,15 @@ The response from the api is in the form of an object that contains three key va
          const newsSource = cardClone.querySelector('#news-source');
          const newsDesc = cardClone.querySelector('#news-description'); 
     
-    
-        newsImg.src= result.image_url;
+        console.log(result.image_url);
+
+        if(result.image_url==null){
+            newsImg.src= 'https://via.placeholder.com/400x200';
+        }
+        else{
+            newsImg.src= result.image_url;
+        }
+        
         newsTitle.innerHTML= result.title;
         newsDesc.innerHTML= result.description;
     
