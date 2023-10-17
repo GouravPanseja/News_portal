@@ -22,7 +22,7 @@ The response from the api is in the form of an object that contains three key va
     
     let initialTopic=arr[Math.floor((Math.random()*10))];
     console.log(initialTopic);
-    window.addEventListener('load',()=> fetchNews('india'));
+    window.addEventListener('load',()=> fetchNews(initialTopic));
     
     function reload(){
         window.location.reload();
